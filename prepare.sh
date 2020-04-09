@@ -52,5 +52,14 @@ k2TUs06w+tKYud8oxP6Xr1Elq5ZQCOOvAnZJeDFT0TPwxUAnqX41PQ== mmilhomem@contoso.local
 #Deploy On Premises Env
 ./Orchestration/OrchestrationService/ModuleConfigurationDeployment.ps1 -DefinitionPath ./Environments/OnPremises/definition.json
 
+./Orchestration/OrchestrationService/ModuleConfigurationDeployment.ps1 -DefinitionPath ./Environments/SharedServices/definition.json
+
+
+#Remove Legal-hold
+Enable-AzureRmAlias
+Remove-azStorageContainerLegalHold -ResourceGroupName "vdc-toolkit-rg" -AccountName "dibwtfrasbwcczsrgrfjbkiv" -ContainerName "audit"
+
 #TearDown
 ./Orchestration/OrchestrationService/ModuleConfigurationDeployment.ps1 -TearDownEnvironment -DefinitionPath ./Environments/SharedServices/definition.json
+
+$ENV:BOOTSTRAP_INITIALIZED = ""
