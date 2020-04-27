@@ -2,6 +2,9 @@
 #Run vdc container
 docker run -it --rm -v "C:\Users\mmilhomem\OneDrive - Microsoft\Projects\vdc\Config":/usr/src/app/Config -v "C:\Users\mmilhomem\OneDrive - Microsoft\Projects\vdc\Environments":/usr/src/app/Environments -v "C:\Users\mmilhomem\OneDrive - Microsoft\Projects\vdc\Modules":/usr/src/app/Modules vdc:latest
 
+#Conect to Azure
+Connect-AzAccount 
+
 #Get subscription ID
 Get-AzContext | % { Get-AzADUser -UserPrincipalName $($_.Account.Id) } | select Id
 
@@ -52,7 +55,7 @@ k2TUs06w+tKYud8oxP6Xr1Elq5ZQCOOvAnZJeDFT0TPwxUAnqX41PQ== mmilhomem@contoso.local
 #Deploy On Premises Env
 ./Orchestration/OrchestrationService/ModuleConfigurationDeployment.ps1 -DefinitionPath ./Environments/OnPremises/definition.json
 
-./Orchestration/OrchestrationService/ModuleConfigurationDeployment.ps1 -DefinitionPath ./Environments/SharedServices/definition.json
+./Orchestration/OrchestrationService/ModuleConfigurationDeployment.ps1 -DefinitionPath ./Environments/SharedServices_OnpremisesExtension/definition.json
 
 
 #Remove Legal-hold
