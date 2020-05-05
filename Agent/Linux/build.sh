@@ -4,7 +4,7 @@ SUBSCRIPTION_ID='f4dea4dc-7df9-4fe4-97bf-02dc71593ba5'
 TENANT_ID='72f988bf-86f1-41af-91ab-2d7cd011db47'
 CLIENT_ID='0b287a4b-80c2-4bc0-85ad-6e64988c0dea'
 CLIENT_SECRET='e29049ee-8a36-4398-9267-06c2fcabd708'
-RESOURCE_GROUP_NAME='vdc-azuredevops-agents-rg'
+RESOURCE_GROUP_NAME='vdc-self-hosted'
 
 az login -u $CLIENT_ID -p $CLIENT_SECRET --service-principal --tenant $TENANT_ID
 

@@ -1,9 +1,11 @@
 #!/bin/bash
 
-AZDO_URL=$1
-PAT=$2
-VSTS_POOL=$3
-AGENT_NAME=$4
+AZDO_URL="dev.azure.com/AzLandingZone"
+PAT="ulbpbdv5ekcazltpayay2r4jive23ocu6mqizhunzpmby6d42iea"
+VSTS_POOL="vdc-self-hosted"
+AGENT_NAME="mm-vdc-ag02"
+
+
 
 CLOUD_INIT='#cloud-config
 runcmd:
@@ -21,7 +23,7 @@ CLOUD_INIT=${CLOUD_INIT/PAT/$PAT}
 CLOUD_INIT=${CLOUD_INIT/VSTS_POOL/$VSTS_POOL}
 CLOUD_INIT=${CLOUD_INIT/AGENT_NAME/$AGENT_NAME}
 
-RESOURCE_GROUP_NAME='vdc-azuredevops-agents-rg'
+RESOURCE_GROUP_NAME='vdc-self-hosted'
 NSG_NAME=$AGENT_NAME'NSG'
 
 echo "Creating VM Agent from Image ..."
